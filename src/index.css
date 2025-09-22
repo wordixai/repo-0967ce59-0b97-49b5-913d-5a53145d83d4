@@ -1,18 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka+One&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-The @apply directive should not be used with the group utility class.
-*/
-
 @layer base {
   :root {
-   
+    /* Pop Art Colors */
+    --pop-orange: 27 96% 61%;
+    --pop-pink: 340 100% 70%;
+    --pop-yellow: 48 100% 67%;
+    --pop-blue: 210 100% 60%;
+    --pop-purple: 280 100% 70%;
+    --pop-black: 0 0% 10%;
+    --pop-white: 0 0% 98%;
+    
+    /* System Colors */
+    --background: var(--pop-white);
+    --foreground: var(--pop-black);
+    --primary: var(--pop-orange);
+    --primary-foreground: var(--pop-white);
+    --secondary: var(--pop-pink);
+    --secondary-foreground: var(--pop-white);
+    --accent: var(--pop-yellow);
+    --accent-foreground: var(--pop-black);
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: var(--pop-orange);
+    --card: var(--pop-white);
+    --card-foreground: var(--pop-black);
+    --popover: var(--pop-white);
+    --popover-foreground: var(--pop-black);
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--pop-white);
+    
+    --radius: 1rem;
   }
+}
 
-  .dark {
-
+@layer components {
+  .pop-dots {
+    background-image: radial-gradient(circle, hsl(var(--pop-orange)) 2px, transparent 2px),
+                      radial-gradient(circle, hsl(var(--pop-pink)) 1px, transparent 1px);
+    background-size: 20px 20px, 15px 15px;
+    background-position: 0 0, 10px 10px;
   }
+  
+  .pop-dots-large {
+    background-image: radial-gradient(circle, hsl(var(--pop-orange)) 4px, transparent 4px),
+                      radial-gradient(circle, hsl(var(--pop-pink)) 3px, transparent 3px);
+    background-size: 40px 40px, 30px 30px;
+    background-position: 0 0, 20px 20px;
+  }
+  
+  .comic-border {
+    border: 4px solid hsl(var(--pop-black));
+    box-shadow: 6px 6px 0px hsl(var(--pop-black));
+  }
+  
+  .pop-gradient-1 {
+    background: linear-gradient(135deg, hsl(var(--pop-orange)) 0%, hsl(var(--pop-pink)) 100%);
+  }
+  
+  .pop-gradient-2 {
+    background: linear-gradient(135deg, hsl(var(--pop-pink)) 0%, hsl(var(--pop-purple)) 100%);
+  }
+  
+  .pop-gradient-3 {
+    background: linear-gradient(135deg, hsl(var(--pop-yellow)) 0%, hsl(var(--pop-orange)) 100%);
+  }
+  
+  .handwritten {
+    font-family: 'Comic Neue', cursive;
+    transform: rotate(-2deg);
+  }
+  
+  .pop-title {
+    font-family: 'Fredoka One', cursive;
+    text-shadow: 3px 3px 0px hsl(var(--pop-black));
+  }
+  
+  .bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+  
+  .wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+  
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+  50% { transform: scale(1.05) rotate(2deg); }
+  70% { transform: scale(0.9) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
