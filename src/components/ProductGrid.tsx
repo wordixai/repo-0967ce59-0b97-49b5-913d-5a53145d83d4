@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard";
+import { Button } from "./ui/button";
 
 const ProductGrid = () => {
   const products = [
